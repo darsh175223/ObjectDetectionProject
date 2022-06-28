@@ -7,7 +7,7 @@ imagePath="html/rgb.jpg"
 def check_for_dark():
   img = cv2.imread(imagePath)
   number_of_black_pix = np.sum(img == 0)
-  return (number_of_black_pix>9000)
+  return (number_of_black_pix>11000)
 
 def wait_for_dark():
   cameraTest.take_picture()

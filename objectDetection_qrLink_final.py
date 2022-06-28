@@ -27,7 +27,7 @@ import cameraTest
 
 
 def check_for_dark():
-  img = cv2.imread("rgb.jpg")
+  img = cv2.imread("html/rgb.jpg")
   number_of_black_pix = np.sum(img == 0)
   print('Number of black pixels: ', number_of_black_pix)
 
@@ -43,12 +43,18 @@ def first_word(word):
   w=w.replace(" ", "_")
   return w
 
+def object(word):
+  ans=""
+  for i in word:
+    if i != ',':
+      ans=ans+i
+
 def run_object_detection():
   parser = argparse.ArgumentParser()
   parser.add_argument(
       '-i',
       '--image',
-      default='./rgb.jpg',
+      default='./html/rgb.jpg',
       help='image to be classified')
   parser.add_argument(
       '-m',
@@ -144,6 +150,11 @@ def run_object_detection():
   print()
   print("Most likely object: "+labels[top_k[0]][4:len(labels[top_k[0]])])
   print()
+  text=labels[top_k[0]][4:len(labels[top_k[0]])]
+  f = open("html/objectFile.txt", "a")
+  f.write(text)
+  f.close()
+
 
   # print('time: {:.3f}ms'.format((stop_time - start_time) * 1000))
   print()

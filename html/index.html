@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <body>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body style="background-color:black;">
        
 
             
 
-        <h1>My Second Heading</h1>
-        <p>My first paragraph.</p>
-        <img id="image" src="rgb.jpg"></img>
-
+        <h1 class = "heading" id="a">Object Detection Project</h1>
+        <h4 class="text" id="b">Cover the camera to take picture</h4>
+        <img class="center" id="image" src="rgb.jpg"></img>
+        <button class="button" id="c">Click me to reveal the object!</button>
         <script>
             function refreshImage(imgElement, imgURL){    
              // create a new timestamp 
@@ -18,16 +21,34 @@
              var el = document.getElementById(imgElement);  
              var queryString = "?t=" + timestamp;    
             
-             el.src = imgURL + queryString;    
+             el.src = imgURL + queryString;   
+             console.log("Its running") 
               }
-              t0=Date().getTime() 
-                while(true){
-                 refreshImage("image", "rgb.jpg")
-                 setTimeout(() => { console.log("delayed") }, 5000);
-                }
+                 setInterval(() => { refreshImage("image", "rgb.jpg") }, 2500);
+
+              function revealObject(){
+                fetch("objectFile.txt")
+                .then((response) => {
+                    return response.text();
+                })
+                .then((text) => {
+                    const element = document.getElementById("a");
+                    element.innerHTML = "Possible Object: ";
+                    const element2 = document.getElementById("b");
+                    element2.innerHTML = text;
+                });
+              }
+            
+              let btn = document.getElementById("c");
+                btn.addEventListener('click', event => {
+                revealObject();
+                });
+    
 
                
              </script> 
+
+
 
     </body>
 </html>

@@ -1,0 +1,27 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  /* style="text-align:center"style="color:green;"  */
+
+.heading{
+    text-align: center;
+    color: chartreuse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text{
+    text-align: center;
+    color: chartreuse;
+}
+
+.obj{
+    text-align: center;
+    color: chartreuse;
+}
+
+.button{
+    text-align: center;
+}
