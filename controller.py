@@ -3,9 +3,9 @@ import cv2
 import numpy as np
 import time
 import objectDetection_qrLink_final as detection
-
+imagePath="html/rgb.jpg"
 def check_for_dark():
-  img = cv2.imread("rgb.jpg")
+  img = cv2.imread(imagePath)
   number_of_black_pix = np.sum(img == 0)
   return (number_of_black_pix>9000)
 

@@ -19,7 +19,7 @@ def take_picture():
     yuv420 = picam2.capture_array("lores")
     time.sleep(1)
     rgb = cv2.cvtColor(yuv420, cv2.COLOR_YUV420p2RGB)
-    cv2.imwrite("rgb.jpg", rgb)
+    cv2.imwrite("html/rgb.jpg", rgb)
     cv2.destroyAllWindows()
     picam2.stop()
 
