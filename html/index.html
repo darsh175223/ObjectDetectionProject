@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <body>
+       
+
+            
+
+        <h1>My Second Heading</h1>
+        <p>My first paragraph.</p>
+        <img id="image" src="rgb.jpg"></img>
+
+        <script>
+            function refreshImage(imgElement, imgURL){    
+             // create a new timestamp 
+             var timestamp = new Date().getTime();
+               
+           
+             var el = document.getElementById(imgElement);  
+             var queryString = "?t=" + timestamp;    
+            
+             el.src = imgURL + queryString;    
+              }
+              t0=Date().getTime() 
+                while(true){
+                 refreshImage("image", "rgb.jpg")
+                 setTimeout(() => { console.log("delayed") }, 5000);
+                }
+
+               
+             </script> 
+
+    </body>
+</html>
