@@ -152,6 +152,7 @@ def run_object_detection():
   print()
   text=labels[top_k[0]][4:len(labels[top_k[0]])]
   f = open("html/objectFile.txt", "a")
+  f.truncate(0)
   f.write(text)
   f.close()
 
