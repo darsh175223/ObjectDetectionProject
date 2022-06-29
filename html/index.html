@@ -13,18 +13,20 @@
         <img class="center" id="image" src="rgb.jpg"></img>
         <button class="button" id="c">Click me to reveal the object!</button>
         <script>
+            let i=0;
+
             function refreshImage(imgElement, imgURL){    
              // create a new timestamp 
              var timestamp = new Date().getTime();
                
-             var i=0;
+
              var el = document.getElementById(imgElement);  
              var queryString = "?t=" + timestamp;    
             
              el.src = imgURL + queryString;   
              console.log("Its running") 
               }
-                 setInterval(() => { placeApplicableImage()  }, 2500);
+                 setInterval(() => { placeApplicableImage(i)  }, 2500);
 
               function revealObject(){
                 fetch("objectFile.txt")
@@ -36,7 +38,7 @@
                     element.innerHTML = "Possible Object: ";
                     const element2 = document.getElementById("b");
                     element2.innerHTML = text;
-                    i=1
+                    i=1;
                     const img = document.getElementById("image");
                     img.src = "QR_code.png";
                 });
@@ -47,8 +49,8 @@
                 revealObject();
                 });
                 
-                function placeApplicableImage(){
-                    if (i==0){
+                function placeApplicableImage(z){
+                    if (z==0){
                         refreshImage("image", "rgb.jpg");
                     }
                     else{
