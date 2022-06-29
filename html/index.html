@@ -17,14 +17,14 @@
              // create a new timestamp 
              var timestamp = new Date().getTime();
                
-           
+             var i=0;
              var el = document.getElementById(imgElement);  
              var queryString = "?t=" + timestamp;    
             
              el.src = imgURL + queryString;   
              console.log("Its running") 
               }
-                 setInterval(() => { refreshImage("image", "rgb.jpg") }, 2500);
+                 setInterval(() => { placeApplicableImage()  }, 2500);
 
               function revealObject(){
                 fetch("objectFile.txt")
@@ -36,6 +36,9 @@
                     element.innerHTML = "Possible Object: ";
                     const element2 = document.getElementById("b");
                     element2.innerHTML = text;
+                    i=1
+                    const img = document.getElementById("image");
+                    img.src = "QR_code.png";
                 });
               }
             
@@ -43,7 +46,15 @@
                 btn.addEventListener('click', event => {
                 revealObject();
                 });
-    
+                
+                function placeApplicableImage(){
+                    if (i==0){
+                        refreshImage("image", "rgb.jpg");
+                    }
+                    else{
+                        refreshImage("image", "QR_code.png");
+                    }
+                }
 
                
              </script> 

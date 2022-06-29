@@ -166,7 +166,7 @@ def run_object_detection():
     print()
     img = qrcode.make("https://en.wikipedia.org/wiki/"+first_word(labels[top_k[0]][4:len(labels[top_k[0]])]))
     type(img)  
-    img.save("QR_code.png")
+    img.save("html/QR_code.png")
     print("Done! Look at 'QR_code.png' to get QR Code.")
     print()
   else:
