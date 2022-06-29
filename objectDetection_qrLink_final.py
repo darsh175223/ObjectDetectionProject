@@ -155,6 +155,9 @@ def run_object_detection():
   f.truncate(0)
   f.write(text)
   f.close()
+  img = qrcode.make("https://en.wikipedia.org/wiki/"+first_word(labels[top_k[0]][4:len(labels[top_k[0]])]))
+  type(img)  
+  img.save("html/QR_code.png")
 
 
   # print('time: {:.3f}ms'.format((stop_time - start_time) * 1000))
@@ -164,9 +167,7 @@ def run_object_detection():
     print()
     print("Sending Qr code for top result...")
     print()
-    img = qrcode.make("https://en.wikipedia.org/wiki/"+first_word(labels[top_k[0]][4:len(labels[top_k[0]])]))
-    type(img)  
-    img.save("html/QR_code.png")
+    
     print("Done! Look at 'QR_code.png' to get QR Code.")
     print()
   else:
